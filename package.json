@@ -5,6 +5,7 @@
     "main": "server/app.js",
     "scripts": {
         "test": "jest",
+        "test-cc": "jest --coverage",
         "start": "nodemon"
     },
     "keywords": [],

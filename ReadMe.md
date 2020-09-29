@@ -29,6 +29,11 @@
 ## test
 * contains test scripts to test the functionalities
 
+## github action: CI CD
+* https://edstem.org/courses/4296/lessons/5486/slides/40675
+* https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-nodejs#starting-with-the-nodejs-workflow-template
+
+
 
 
 
