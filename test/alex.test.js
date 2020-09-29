@@ -1,5 +1,5 @@
 const request = require('supertest');
-const {app, server} = require("../server/index.js")
+const {app, server} = require("../server/app.js")
 
 afterAll(async (done) => {
 	// Force our server reference to close:
@@ -85,7 +85,6 @@ describe('GET /posts', () => {
         const response = await request(app)
         .get('/posts')
         .set('Accept', 'application/json')
-        console.log(response.body)
         expect(Object.keys(response.body).length).toEqual(2)
         done();
     })
@@ -96,7 +95,8 @@ describe('DELETE /posts/3', () => {
     test('should delete first post ', async (done) => {
         const response = await request(app)
         .delete('/posts/3')
-        .expect(200)
+		let ids = Object.keys(response.body)
+		expect(ids.includes("3")).toBe(false)
         done();
     })
 })

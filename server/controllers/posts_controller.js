@@ -1,10 +1,10 @@
 const { getAllPosts, getPostById, addPost, deletePost, updatePost } = require("../utils/utilities")
 
-const getPosts = function(req, res) {
+const getPosts = (req, res) => {
 	res.send(getAllPosts(req))
 }
 
-const getPost = function(req, res) {
+const getPost = (req, res) => {
 	let post = getPostById(req)
 	if (post) res.send(post)
 	else {
@@ -12,7 +12,7 @@ const getPost = function(req, res) {
 		res.send(req.error)
 	}
 }
-const makePost = function(req, res) {
+const makePost = (req, res) => {
 	let post = addPost(req)
 	if (post) {
 		res.status(201)
@@ -23,12 +23,12 @@ const makePost = function(req, res) {
 	}
 }
 
-const removePost = function(req, res) {
+const removePost = (req, res) => {
 	let blogPosts = deletePost(req.params.id)
 	res.send(blogPosts)
 }
 
-const changePost = function(req, res) {
+const changePost = (req, res) => {
 	let post = updatePost(req)
 	if (post) {
 		res.status(200)

@@ -1,18 +1,17 @@
 let dataFile = "../../server/data/blog_posts.json"
-// let dataFile = "../data/blog_posts.json"
 let blogPosts = require(dataFile)
 const fs = require('fs');
 
-const getAllPosts = function(req) {
+const getAllPosts = (req) => {
 	return blogPosts
 }
 
-const getPostById = function(req) {
+const getPostById = (req) => {
 	let post = blogPosts[req.params.id]
 	if (post) return post
 	else req.error = "Post not found"
 }
-const addPost = function(req) {
+const addPost = (req) => {
 	try {
 		const date = Date.now()
 		let blogPost = {
@@ -23,8 +22,8 @@ const addPost = function(req) {
 			content: req.body.content,
 			category: req.body.category || ""
 		}
-        blogPosts[getNextId()] = blogPost
-        // blogPosts.push(blogPost)
+		blogPosts[getNextId()] = blogPost
+		// node file write: in future this will be replaced with mogodb create
 		fs.writeFileSync(getDataFileRelativeToApp(dataFile), JSON.stringify(blogPosts))
 		return blogPost
 	}
@@ -35,7 +34,7 @@ const addPost = function(req) {
 	}
 }
 
-const deletePost = function(id) {
+const deletePost = (id) => {
 	if (Object.keys(blogPosts).includes(id)) {
 		delete blogPosts[id]
 		fs.writeFileSync(getDataFileRelativeToApp(dataFile), JSON.stringify(blogPosts))
@@ -52,7 +51,7 @@ function getNextId() {
 	return nextId
 }
 
-const updatePost = function(req) {
+const updatePost = (req) => {
 	try {
 		let id = req.params.id
 		if (!blogPosts[id]) throw "Post not found"
@@ -76,10 +75,9 @@ function loadData(path) {
   blogPosts = JSON.parse(fs.readFileSync(path,'utf8'))
 }
 
-const getDataFileRelativeToApp = function(file) {
+const getDataFileRelativeToApp = (file) => {
 	// Remove the ../ from the dataFile path for writing
 	// because the writeFile looks for path relative to the app, not utilities.js
-	// return dataFile.substring(dataFile.lastIndexOf("../../") + 4, dataFile.length)
 	return file.substring(file.lastIndexOf("../") + 3, file.length)
 }
 

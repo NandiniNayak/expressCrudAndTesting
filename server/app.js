@@ -1,4 +1,5 @@
 const express = require("express")
+const supertest = require("supertest")
 const app = express()
 const postRouter = require("./routes/post_routes")
 const port = 3000
@@ -32,6 +33,7 @@ const server = app.listen(port, () => {
     console.log(`Blog express app listening on port ${port}`)
 })
 
+// to test with supertest
 module.exports = {
     app,
     server

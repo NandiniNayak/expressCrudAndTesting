@@ -11,7 +11,7 @@ beforeEach(() => {
 	setupData()
 })
 
-describe("getAllPosts with one post", () => {
+describe("getAllPosts", () => {
 	test("should get a post if one exists", () => {
 		// Pass an empty req object
 		expect(Object.keys(utilities.getAllPosts({})).length).toBe(1)
@@ -47,7 +47,7 @@ describe("addPost", () => {
 		expect(post.title).toBe(req.body.title)
 	})
 
-	test("should update all blogPosts", () => {
+	test("should get all blogPosts", () => {
         // add the post again because setupData will clear the one we created
         const req = {
 			body: {
