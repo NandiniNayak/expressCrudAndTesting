@@ -46,8 +46,8 @@ describe('/studentNames page functionality', () => {
 })
 
 // test post routes
-
-describe('/posts must post the data', () => {
+// add a post
+describe('POST /post', () => {
     test('should add a post ', async (done) => {
         const response = await request(app)
         .post('/posts')
@@ -61,3 +61,43 @@ describe('/posts must post the data', () => {
         done();
     })
 })
+
+// update a post
+describe('PUT /posts/2 ', () => {
+    test('should update a post ', async (done) => {
+        const response = await request(app)
+        .put('/posts/2')
+        .send({
+            title: "Updated post",
+            username: "tester",
+            content: "This is Updated blog post!",
+            category: ""
+        })
+        expect(response.body.title).toEqual("Updated post");
+        done();
+    })
+})
+
+// get posts
+
+describe('GET /posts', () => {
+    test('should get all posts ', async (done) => {
+        const response = await request(app)
+        .get('/posts')
+        .set('Accept', 'application/json')
+        console.log(response.body)
+        expect(Object.keys(response.body).length).toEqual(2)
+        done();
+    })
+})
+
+// delete a post
+describe('DELETE /posts/3', () => {
+    test('should delete first post ', async (done) => {
+        const response = await request(app)
+        .delete('/posts/3')
+        .expect(200)
+        done();
+    })
+})
+
