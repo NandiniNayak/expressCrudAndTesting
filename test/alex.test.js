@@ -80,15 +80,15 @@ describe('PUT /posts/2 ', () => {
 
 // get posts
 
-describe('GET /posts', () => {
-    test('should get all posts ', async (done) => {
-        const response = await request(app)
-        .get('/posts')
-        .set('Accept', 'application/json')
-        expect(Object.keys(response.body).length).toEqual(2)
-        done();
-    })
-})
+// describe('GET /posts', () => {
+//     test('should get all posts ', async (done) => {
+//         const response = await request(app)
+//         .get('/posts')
+//         .set('Accept', 'application/json')
+//         expect(Object.keys(response.body).length).toEqual(2)
+//         done();
+//     })
+// })
 
 // delete a post
 describe('DELETE /posts/3', () => {
