@@ -1,5 +1,4 @@
 const express = require("express")
-const supertest = require("supertest")
 const app = express()
 const postRouter = require("./routes/post_routes")
 const port = 3000

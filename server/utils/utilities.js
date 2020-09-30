@@ -11,6 +11,19 @@ const getPostById = (req) => {
 	if (post) return post
 	else req.error = "Post not found"
 }
+
+// Allows flexibility for testing
+// Loads data from dataFile with fs
+function loadData(path) {
+  blogPosts = JSON.parse(fs.readFileSync(path,'utf8'))
+}
+
+const getDataFileRelativeToApp = (file) => {
+	// Remove the ../ from the dataFile path for writing
+	// because the writeFile looks for path relative to the app, not utilities.js
+	return file.substring(file.lastIndexOf("../") + 3, file.length)
+}
+
 const addPost = (req) => {
 	try {
 		const date = Date.now()
@@ -69,17 +82,6 @@ const updatePost = (req) => {
 	}
 }
 
-// Allows flexibility for testing
-// Loads data from dataFile with fs
-function loadData(path) {
-  blogPosts = JSON.parse(fs.readFileSync(path,'utf8'))
-}
-
-const getDataFileRelativeToApp = (file) => {
-	// Remove the ../ from the dataFile path for writing
-	// because the writeFile looks for path relative to the app, not utilities.js
-	return file.substring(file.lastIndexOf("../") + 3, file.length)
-}
 
 module.exports = {
 	getAllPosts,

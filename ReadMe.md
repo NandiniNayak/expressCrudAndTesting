@@ -34,6 +34,35 @@
 * https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-nodejs#starting-with-the-nodejs-workflow-template
 
 
+## Order:
+
+* app.js
+* Build router. : 
+* Get all Posts, getPostByID. : GET /posts , /posts/:id
+* Utilities : add function
+* Test utilities function
+* update Controller
+* Test from postman
+
+
+* Route : POST
+* Add post: utility
+* Test script
+* Controller
+* Test from postman
+
+
+* Route : Delete
+* Delete post : utility
+* Test script
+* Controller
+* Test from postman
+
+* Update Route: PUT
+* UpdatePost : utility
+* Test Script
+* Controller
+* Test from postman
 
 
 
