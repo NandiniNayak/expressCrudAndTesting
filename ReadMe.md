@@ -36,6 +36,7 @@
 
 ## Order:
 
+## GET Request
 * app.js
 * Build router. : 
 * Get all Posts, getPostByID. : GET /posts , /posts/:id
@@ -44,20 +45,21 @@
 * update Controller
 * Test from postman
 
-
+## POST Request
 * Route : POST
 * Add post: utility
 * Test script
 * Controller
 * Test from postman
 
-
+## DELETE Request
 * Route : Delete
 * Delete post : utility
 * Test script
 * Controller
 * Test from postman
 
+## UPDATE Request
 * Update Route: PUT
 * UpdatePost : utility
 * Test Script
